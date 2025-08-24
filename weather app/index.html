@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="city-input" placeholder="Search for a city...">
+                    <button id="search-btn"><i class="wi wi-search"></i></button>
+                </div>
+                <div class="recent-searches">
+                    <h3>Recent Searches</h3>
+                    <div id="recent-list"></div>
+                </div>
+            </div>
+            
+            <div class="current-weather">
+                <div class="weather-main">
+                    <div class="location" id="city-name">--</div>
+                    <div class="date" id="current-date">--</div>
+                    <div class="weather-icon">
+                        <i id="weather-icon" class="wi wi-day-sunny"></i>
+                    </div>
+                    <div class="temp" id="temperature">--<span>°C</span></div>
+                    <div class="description" id="weather-description">--</div>
+                </div>
+                
+                <div class="weather-details">
+                    <div class="detail">
+                        <i class="wi wi-humidity"></i>
+                        <div>
+                            <span class="value" id="humidity">--%</span>
+                            <span class="label">Humidity</span>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <i class="wi wi-strong-wind"></i>
+                        <div>
+                            <span class="value" id="wind">-- km/h</span>
+                            <span class="label">Wind Speed</span>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <i class="wi wi-barometer"></i>
+                        <div>
+                            <span class="value" id="pressure">-- hPa</span>
+                            <span class="label">Pressure</span>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <i class="wi wi-sunrise"></i>
+                        <div>
+                            <span class="value" id="sunrise">--:--</span>
+                            <span class="label">Sunrise</span>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <i class="wi wi-sunset"></i>
+                        <div>
+                            <span class="value" id="sunset">--:--</span>
+                            <span class="label">Sunset</span>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <i class="wi wi-thermometer"></i>
+                        <div>
+                            <span class="value" id="feels-like">--°C</span>
+                            <span class="label">Feels Like</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="forecast-container">
+                <div class="section-title">Hourly Forecast</div>
+                <div class="hourly-forecast" id="hourly-forecast">
+                    <!-- Hourly forecast items will be added here by JavaScript -->
+                </div>
+                
+                <div class="section-title">5-Day Forecast</div>
+                <div class="daily-forecast" id="daily-forecast">
+                    <!-- Daily forecast items will be added here by JavaScript -->
+                </div>
+                
+                <div class="weather-map">
+                    <div class="section-title">Weather Map</div>
+                    <div class="map-container">
+                        <div id="map">
+                            <img id="weather-map" src="" alt="Weather Map" style="display: none;">
+                            <div class="map-overlay">
+                                <p>Enable location access to view weather map</p>
+                                <button id="enable-location">Enable Location</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="air-quality">
+                    <div class="section-title">Air Quality</div>
+                    <div class="air-quality-container">
+                        <div class="air-quality-index">
+                            <div class="index-value" id="air-quality-index">--</div>
+                            <div class="index-label">Air Quality Index</div>
+                        </div>
+                        <div class="air-quality-details">
+                            <div class="air-detail">
+                                <span class="label">PM2.5</span>
+                                <span class="value" id="pm25">--</span>
+                            </div>
+                            <div class="air-detail">
+                                <span class="label">PM10</span>
+                                <span class="value" id="pm10">--</span>
+                            </div>
+                            <div class="air-detail">
+                                <span class="label">O₃</span>
+                                <span class="value" id="o3">--</span>
+                            </div>
+                            <div class="air-detail">
+                                <span class="label">NO₂</span>
+                                <span class="value" id="no2">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loading-overlay" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading weather data...</div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
